@@ -71,3 +71,5 @@ source 'https://rails-assets.org' do
 end
 gem 'kaminari'
 gem 'kaminari-bootstrap'
+
+gem 'simple_form'
