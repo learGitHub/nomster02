@@ -73,3 +73,4 @@ gem 'kaminari'
 gem 'kaminari-bootstrap'
 
 gem 'simple_form'
+gem 'font-awesome-rails'
