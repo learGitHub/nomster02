@@ -5,7 +5,7 @@
   <p><%= @place.description %></p>
    <div class="booyah-box03 col-10 offset-1">
     <% @place.photos.each do |photo| %>
-    <%= image_tag photo.picture.url.to_s %>
+    <%= image_tag photo.picture.url.to_s, class: 'showimg img-fluid' %>
     <%= photo.caption %>
     <% end %>
    </div>
@@ -55,6 +55,9 @@
     <%= link_to 'Destroy', place_path(@place), method: :delete, data: {confirm: 'Are you sure you want to delete this?'}, class: 'btn btn-danger' %>
    <% end %>
   </div>
+
+<br />
+  
 </div>
 
 
@@ -82,12 +85,26 @@
   </div>
 </div>
 
-<div class="col-10 offset-1">
-      <h1 class="float-left">Comments</h1>
-<!-- Comment Button trigger modal -->
-      <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
-        Add a comment
+<div class = "row">
+
+  <div class="col-10 offset-1">
+        <h2 class="float-left">Comments</h1>
+  <!-- Comment Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-med float-right" data-toggle="modal" data-target="#myModal">
+          Add a comment
+        </button>
+  </div>
+
+  <br /> <br />
+
+  <div class="col-10 offset-1">
+      <h2 class="float-left">Photos</h1>
+<!-- Photo Button trigger modal -->
+      <button type="button" class="btn btn-primary btn-med float-right" data-toggle="modal" data-target="#myPhotoModal">
+        Add a photo
       </button>
+  </div>
+
 </div>
 
 <div class="clear"></div>
@@ -118,19 +135,13 @@
   </div>
 </div>
 
-<div class="col-10 offset-1">
-      <h1 class="float-left">Photos</h1>
-<!-- Photo Button trigger modal -->
-      <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myPhotoModal">
-        Add a photo
-      </button>
-</div>
+
 
 <!-- End Photo form -->
 
 <div class="row">
     <% @place.comments.each do |comment| %>
-      <div class="col-12 col-sm-6">
+      <div class="col-12 col-sm-5 offset-1">
         <blockquote>
           <% if comment.humanized_rating.present? %>
             <b><%= comment.humanized_rating %></b> -
